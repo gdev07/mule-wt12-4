@@ -1,0 +1,17 @@
+http:
+  port: "8081"
+
+sfdc:
+  username: "gsingh28@kpmg.com.au"
+  password: "Lebikhari12#"
+  token: "RcVFcydallZ4hOa8XbzTaBQX"
+
+file:
+  accountsDir: "/Users/jasminenagpal"
+  
+db:
+  host: "mudb.learn.mulesoft.com"
+  port: "3306"
+  user: "mule"
+  password: "mule"
+  database: "training"

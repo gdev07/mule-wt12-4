@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xmlns:os="http://www.mulesoft.org/schema/mule/os"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd">
+	<flow name="getSFDCaccountsTest" doc:id="6bbd158b-b434-4ab8-94c5-6fe63729bed2" >
+		<http:listener doc:name="GET /sfdc" doc:id="3adf6139-5176-45df-a201-e88c89bb2834" config-ref="HTTP_Listener_config" path="/sfdcTest/{tid}" allowedMethods="GET"/>
+		<set-variable value="#[attributes.uriParams.tid]" doc:name="Set Variable" doc:id="2312c912-2082-4175-ac85-ff208da5d8ed" variableName="setvar" />
+		<set-payload value='#[{company:"Mulesoft"}]' doc:name="Set Payload" doc:id="4c8c8f9a-f24d-4255-b8a7-81fbe7ea82ed" />
+		<choice doc:name="Choice" doc:id="e32afc52-e2f6-4c26-8733-1a5389e09270" >
+			<when expression="#['Mulesoft' == payload.company]">
+				<set-payload value='#["gurdev"]' doc:name="Set Payload" doc:id="c5088e90-9141-4230-aa23-ccd785d3b37c" />
+			</when>
+			<otherwise >
+				<set-payload value='#["paras"]' doc:name="Set Payload" doc:id="dc249355-87e2-4bdc-b352-5524ac80b77f" />
+			</otherwise>
+		</choice>
+	</flow>
+</mule>

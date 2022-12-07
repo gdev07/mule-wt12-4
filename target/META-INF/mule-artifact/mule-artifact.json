@@ -1,0 +1,41 @@
+{
+  "configs": [
+    "test4.xml",
+    "global.xml",
+    "test5.xml",
+    "test3.xml",
+    "accounts.xml",
+    "apdev-examples.xml",
+    "test6.xml",
+    "test.xml"
+  ],
+  "secureProperties": [],
+  "redeploymentEnabled": true,
+  "name": "com.mycompany:wt12-4_apdev-examples_solution:1.0.0-SNAPSHOT",
+  "minMuleVersion": "4.3.0",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "log4j2.xml",
+        "global.xml",
+        "test6.xml",
+        "test5.xml",
+        "test4.xml",
+        "application-types.xml",
+        "config.yaml",
+        "test3.xml",
+        "test.xml",
+        "accounts.xml",
+        "examples/accounts.json",
+        "apdev-examples.xml"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}

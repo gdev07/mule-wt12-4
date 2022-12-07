@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
+	xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xmlns:os="http://www.mulesoft.org/schema/mule/os" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
+	<flow name="getSFDCaccountsTest6" doc:id="6bbd158b-b434-4ab8-94c5-6fe63729bed2" >
+		<http:listener doc:name="GET /sfdc" doc:id="3adf6139-5176-45df-a201-e88c89bb2834" config-ref="HTTP_Listener_config" path="/sfdcTest6" allowedMethods="GET">
+			<http:error-response >
+				<http:body ><![CDATA[#[payload]]]></http:body>
+			</http:error-response>
+		</http:listener>
+		<set-payload doc:name="Set Payload json" doc:id="871712c9-7eec-4054-9788-03d840af9d86" value='#[[{
+		"account":{
+		"accountID":"123A",
+		"name": "gurdev",
+		"bal": 123.3
+	},
+	"account":{
+		"accountID":"123b",
+		"name": "gurdev",
+		"bal": 123.3
+	},
+	"account":{
+		"accountID":"123c",
+		"name": "gurdev",
+		"bal": 123.3
+	}}]]'/>
+		<set-payload value='#["I am happy to share that I have obtained a new certification: Certified Developer - Level 1 from MuleSoft!"]' doc:name="Set Payload" doc:id="a2b6f82f-6615-41f4-b6ec-843797b90e82" />
+		<logger level="INFO" doc:name="Logger" doc:id="03c1567c-6e69-44a1-93bc-3427849831de" message="The year is #[payload.year]"/>
+		<ee:transform doc:name="Transform Message" doc:id="70326ce2-bdd2-401a-8004-b8277b382352" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	pobj: typeOf(payload)
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

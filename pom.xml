@@ -44,8 +44,8 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.4.0</muleVersion>
-						<username>${anypoint.username}</username>
-						<password>${anypoint.password}</password>
+						<username>gsingh28</username>
+						<password>Lebikhari12#</password>
 						<applicationName>mule-wt12-4-app-cicd-github</applicationName>
 						<environment>Sandbox</environment>
 						<workerType>MICRO</workerType>

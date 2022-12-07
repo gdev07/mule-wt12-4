@@ -71,7 +71,7 @@ jobs:
     
     - name: Deploy to Sandbox
       env:
-        USERNAME: gsingh28
+        USERNAME: bchm007
         PASSWORD: Lebikhari12#
       run: |
         artifactName=$(ls *.jar | head -1)

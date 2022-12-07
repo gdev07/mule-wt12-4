@@ -15,3 +15,7 @@ db:
   user: "mule"
   password: "mule"
   database: "training"
+  
+anypoint:
+  username: "gsingh28"
+  password: "Lebikhari12#"

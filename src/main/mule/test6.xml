@@ -13,7 +13,7 @@ http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/
 http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
 http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
 	<flow name="getSFDCaccountsTest6" doc:id="6bbd158b-b434-4ab8-94c5-6fe63729bed2" >
-		<http:listener doc:name="GET /sfdc" doc:id="3adf6139-5176-45df-a201-e88c89bb2834" config-ref="HTTP_Listener_config" path="/sfdcTest6" allowedMethods="GET">
+		<http:listener doc:name="GET /sfdc" doc:id="3adf6139-5176-45df-a201-e88c89bb2834" config-ref="HTTP_Listener_config" path="/sfdctest6" allowedMethods="GET">
 			<http:error-response >
 				<http:body ><![CDATA[#[payload]]]></http:body>
 			</http:error-response>
